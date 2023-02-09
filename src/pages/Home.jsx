@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Cart from './Cart';
 
 class Home extends Component {
   render() {
