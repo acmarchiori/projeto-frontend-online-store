@@ -13,7 +13,7 @@ class ListCategories extends Component {
   fetchCategories = async () => {
     const categoriesList = await getCategories();
     this.setState({ categories: categoriesList });
-    console.log(categoriesList);
+    // console.log(categoriesList);
   };
 
   list = () => {
