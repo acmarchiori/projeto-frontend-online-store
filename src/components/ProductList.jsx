@@ -36,7 +36,12 @@ class ProductList extends Component {
 }
 
 ProductList.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
+  list: PropTypes.arrayOf.PropTypes.shape({
+    title: PropTypes.string,
+    category_id: PropTypes.string,
+    thumbnail: PropTypes.string,
+    price: PropTypes.string,
+  }),
+}.isRequired;
 
 export default ProductList;
