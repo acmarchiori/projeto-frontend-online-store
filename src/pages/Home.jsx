@@ -18,10 +18,8 @@ class Home extends Component {
   };
 
   callList = async () => {
-    const { query, queryList } = this.state;
     const list = await getProductsFromCategoryAndQuery('', query);
     this.setState({ queryList: list.results });
-    console.log(queryList);
     return list;
   };
 

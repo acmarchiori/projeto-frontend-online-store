@@ -6,14 +6,10 @@ class ProductList extends Component {
     const { list } = this.props;
 
     if (list.length <= 0) {
-      // console.log(list);
-      // console.log('entrei no if');
       return (
         <p>Nenhum produto foi encontrado</p>
       );
     }
-    // console.log('entrei no else');
-    // console.log(list);
     return (
       list.map((produto) => (
         <li data-testid="product" key={ produto.category_id }>
@@ -36,12 +32,12 @@ class ProductList extends Component {
 }
 
 ProductList.propTypes = {
-  list: PropTypes.arrayOf.PropTypes.shape({
+  list: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     category_id: PropTypes.string,
     thumbnail: PropTypes.string,
     price: PropTypes.string,
-  }),
+  })),
 }.isRequired;
 
 export default ProductList;
