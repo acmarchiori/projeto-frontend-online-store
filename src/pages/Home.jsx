@@ -2,25 +2,40 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ListCategories from '../components/ListCategories';
 import ProductList from '../components/ProductList';
-import { getProductsFromCategoryAndQuery } from '../services/api';
+import { getProductsFromCategoryAndQuery, getProductById } from '../services/api';
 
 class Home extends Component {
   state = {
     query: '',
     queryList: [],
+    categorItem: '',
+
   };
 
-  handleChange = ({ target }) => {
+  handleChange = ({ target }, categoriaId) => {
     const { name, value } = target;
     this.setState({
       [name]: value,
-    });
+      categorItem: categoriaId,
+    }, this.callList);
   };
 
+  // callList = async () => {
+  //   const list = await getProductsFromCategoryAndQuery('', query);
+  //   this.setState({ queryList: list.results });
+  //   return list;
+  // };
+
   callList = async () => {
-    const list = await getProductsFromCategoryAndQuery('', query);
-    this.setState({ queryList: list.results });
-    return list;
+    const { categorItem, query } = this.state;
+    if (query.length > 0) {
+      const listCategories = await getProductsFromCategoryAndQuery('', query);
+      this.setState({ queryList: listCategories.results });
+      return listCategories;
+    }
+    const listIds = await getProductById(categorItem);
+    this.setState({ queryList: listIds.results });
+    return listIds;
   };
 
   render() {
@@ -46,7 +61,7 @@ class Home extends Component {
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h1>
         <Link data-testid="shopping-cart-button" to="/Cart">Carrinho de compras</Link>
-        <ListCategories />
+        <ListCategories handleChange={ this.handleChange } />
         <ProductList list={ queryList } />
       </div>
     );
