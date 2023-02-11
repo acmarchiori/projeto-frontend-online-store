@@ -31,7 +31,6 @@ class ListCategories extends Component {
               name={ categoria.name }
               id={ categoria.name }
               value={ categoria.id }
-              // checked={ selectedValue === categoria.id }
               onChange={ (event) => handleChange(event, categoria.id) }
             />
             { categoria.name }
