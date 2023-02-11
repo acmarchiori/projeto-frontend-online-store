@@ -16,7 +16,6 @@ class ProductDetails extends Component {
 
   fetchProduct = async () => {
     const { match: { params: { id } } } = this.props;
-    console.log(id);
     const list = await getProductByDetails(id);
     this.setState({
       title: list.title,
