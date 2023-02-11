@@ -20,12 +20,6 @@ class Home extends Component {
     }, this.callList);
   };
 
-  // callList = async () => {
-  //   const list = await getProductsFromCategoryAndQuery('', query);
-  //   this.setState({ queryList: list.results });
-  //   return list;
-  // };
-
   callList = async () => {
     const { categorItem, query } = this.state;
     if (query.length > 0) {
