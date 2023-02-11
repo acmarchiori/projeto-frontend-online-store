@@ -1,9 +1,11 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { getCategories } from '../services/api';
 
 class ListCategories extends Component {
   state = {
     categories: [],
+
   };
 
   componentDidMount() {
@@ -18,16 +20,18 @@ class ListCategories extends Component {
 
   list = () => {
     const { categories } = this.state;
+    const { handleChange } = this.props;
     return (
       categories.map((categoria) => (
         <li key={ categoria.id }>
+          {/* this.setState({ id: categoria.id }) */}
           <label data-testid="category" htmlFor={ categoria.name }>
             <input
               type="radio"
               name={ categoria.name }
               id={ categoria.name }
-              // checked={}
-              // onChange={ this.handleChange }
+              value={ categoria.id }
+              onChange={ (event) => handleChange(event, categoria.id) }
             />
             { categoria.name }
           </label>
@@ -45,5 +49,9 @@ class ListCategories extends Component {
     );
   }
 }
+
+ListCategories.propTypes = {
+  handleChange: PropTypes.func,
+}.isRequired;
 
 export default ListCategories;
