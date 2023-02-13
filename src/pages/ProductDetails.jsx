@@ -8,6 +8,7 @@ class ProductDetails extends Component {
     title: '',
     image: '',
     price: 0,
+    warranty: '',
   };
 
   componentDidMount() {
@@ -17,10 +18,12 @@ class ProductDetails extends Component {
   fetchProduct = async () => {
     const { match: { params: { id } } } = this.props;
     const list = await getProductByDetails(id);
+    console.log(list.warranty);
     this.setState({
       title: list.title,
       image: list.thumbnail,
       price: list.price,
+      warranty: list.warranty,
     });
   };
 
@@ -29,6 +32,7 @@ class ProductDetails extends Component {
       title,
       image,
       price,
+      warranty,
     } = this.state;
 
     return (
@@ -37,6 +41,7 @@ class ProductDetails extends Component {
           <h1 data-testid="product-detail-name">{ title }</h1>
           <img data-testid="product-detail-image" src={ image } alt={ title } />
           <p data-testid="product-detail-price">{`R$ ${price.toFixed(2)}`}</p>
+          <p>{ warranty }</p>
         </Link>
       </div>
     );
