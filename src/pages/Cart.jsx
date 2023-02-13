@@ -14,7 +14,7 @@ class Cart extends Component {
         savedCart: pegarLS,
       });
     }
-    localStorage.setItem('cartSave', JSON.stringify([]));
+    // localStorage.setItem('cartSave', JSON.stringify([]));
   }
 
   filter = (title) => {

@@ -6,43 +6,84 @@ import { getProductByDetails } from '../services/api';
 class ProductDetails extends Component {
   state = {
     title: '',
-    image: '',
+    thumbnail: '',
     price: 0,
     warranty: '',
+    savedCart: [],
   };
 
   componentDidMount() {
+    const pegarLS = JSON.parse(localStorage.getItem('cartSave'));
+
+    if (pegarLS !== null) {
+      this.setState({
+        savedCart: pegarLS,
+      });
+    }
+    // localStorage.setItem('cartSave', JSON.stringify([]));
     this.fetchProduct();
   }
+
+  saveLocalStorage = () => {
+    const { savedCart } = this.state;
+    localStorage.setItem('cartSave', JSON.stringify(savedCart) || []);
+  };
 
   fetchProduct = async () => {
     const { match: { params: { id } } } = this.props;
     const list = await getProductByDetails(id);
-    console.log(list.warranty);
     this.setState({
       title: list.title,
-      image: list.thumbnail,
+      thumbnail: list.thumbnail,
       price: list.price,
       warranty: list.warranty,
     });
   };
 
+  handleClick = () => {
+    const { savedCart, title, thumbnail, price } = this.state;
+    console.log(title);
+    this.setState({
+      savedCart: [
+        ...savedCart,
+        {
+          title,
+          thumbnail,
+          price,
+        },
+      ],
+    }, this.saveLocalStorage);
+  };
+
   render() {
     const {
       title,
-      image,
+      thumbnail,
       price,
       warranty,
     } = this.state;
 
     return (
       <div>
-        <Link data-testid="shopping-cart-button" to="/cart">
-          <h1 data-testid="product-detail-name">{ title }</h1>
-          <img data-testid="product-detail-image" src={ image } alt={ title } />
-          <p data-testid="product-detail-price">{`R$ ${price.toFixed(2)}`}</p>
-          <p>{ warranty }</p>
-        </Link>
+        <h1 data-testid="product-detail-name">{title}</h1>
+        <img data-testid="product-detail-image" src={ thumbnail } alt={ title } />
+        <p data-testid="product-detail-price">{`R$ ${price.toFixed(2)}`}</p>
+        <p>{warranty}</p>
+        <button
+          type="button"
+          data-testid="product-detail-add-to-cart"
+          onClick={ this.handleClick }
+        >
+          Adicionar ao carrinho
+        </button>
+        <p>
+          <Link
+            data-testid="shopping-cart-button"
+            to="/Cart"
+          >
+            Carrinho de compras
+          </Link>
+        </p>
       </div>
     );
   }
