@@ -3,6 +3,31 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 class ProductList extends Component {
+  state = {
+    savedCart: [],
+  };
+
+  saveLocalStorage = () => {
+    const { savedCart } = this.state;
+    localStorage.setItem('cartSave', JSON.stringify(savedCart) || []);
+  };
+
+  handleClick = (produto) => {
+    const { savedCart } = this.state;
+    const { title, thumbnail, price } = produto;
+
+    this.setState({
+      savedCart: [
+        ...savedCart,
+        {
+          title,
+          thumbnail,
+          price,
+        },
+      ],
+    }, this.saveLocalStorage);
+  };
+
   list = () => {
     const { list } = this.props;
 
@@ -21,9 +46,16 @@ class ProductList extends Component {
             <li data-testid="product">
               <p>{ produto.title }</p>
               <img src={ produto.thumbnail } alt={ produto.title } />
-              <p>{ `R$ ${produto.price.toFixed(2)}` }</p>
+              <p>{ `R$ ${produto.price}` }</p>
             </li>
           </Link>
+          <button
+            type="button"
+            data-testid="product-add-to-cart"
+            onClick={ () => this.handleClick(produto) }
+          >
+            Adicionar ao carrinho
+          </button>
         </div>
       )));
   };
