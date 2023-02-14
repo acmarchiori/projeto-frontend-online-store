@@ -36,23 +36,32 @@ class ProductDetails extends Component {
       title: list.title,
       thumbnail: list.thumbnail,
       price: list.price,
+      count: 1,
       warranty: list.warranty,
     });
   };
 
   handleClick = () => {
-    const { savedCart, title, thumbnail, price } = this.state;
-    console.log(title);
-    this.setState({
-      savedCart: [
-        ...savedCart,
-        {
-          title,
-          thumbnail,
-          price,
-        },
-      ],
-    }, this.saveLocalStorage);
+    const { savedCart, title, thumbnail, price, count } = this.state;
+
+    const contador = savedCart.some((product) => product.title === title);
+    if (contador) {
+      this.setState({
+        count: 1,
+      });
+    } else {
+      this.setState({
+        savedCart: [
+          ...savedCart,
+          {
+            title,
+            thumbnail,
+            price,
+            count,
+          },
+        ],
+      }, this.saveLocalStorage);
+    }
   };
 
   render() {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ProductCard from '../components/ProductCard';
 
 class Cart extends Component {
   state = {
@@ -17,11 +18,64 @@ class Cart extends Component {
     // localStorage.setItem('cartSave', JSON.stringify([]));
   }
 
-  filter = (title) => {
-    const { savedCart } = this.state;
-    const count = savedCart.filter((produto) => produto.title === title);
-    return count.length;
+  updateCartFunction = (update) => {
+    this.setState({ savedCart: update });
   };
+
+  saveLocalStorage = () => {
+    const { savedCart } = this.state;
+    localStorage.setItem('cartSave', JSON.stringify(savedCart) || []);
+  };
+
+  // filter = (title) => {
+  //   const { savedCart } = this.state;
+  //   const count = savedCart.filter((produto) => produto.title === title);
+  //   return count.length;
+  // };
+
+  removeItem = ({ target }) => {
+    const getTitle = target.id;
+    const { savedCart } = this.state;
+
+    const verifyDeleted = savedCart.filter((produto) => produto.title !== getTitle);
+    this.setState({
+      savedCart: verifyDeleted,
+    }, this.saveLocalStorage);
+  };
+
+  // addItem = ({ target }) => {
+  //   const getTitle = target.id;
+  //   const { savedCart, count } = this.state;
+
+  //   const find = savedCart.some((produto) => produto.title === getTitle);
+  //   console.log(find, !!find);
+  //   if (find) {
+  //     this.setState({
+  //       count: (count + 1),
+  //     });
+  //   }
+  // };
+
+  // decreaseItem = ({ target }) => {
+  //   const getTitle = target.id;
+  //   const { savedCart, count } = this.state;
+  //   const find = savedCart.some((produto) => produto.title === getTitle);
+  //   const newSavedCart = savedCart.map((item) => {
+  //     if (item.title === getTitle) {
+  //       item.count -= 1;
+  //       this.setState({
+  //         count2: item.count,
+  //       });
+  //     }
+  //     console.log(item.count);
+  //     return item;
+  //   });
+  //   if (find && count < 1) {
+  //     this.setState({ count: -1 });
+  //     this.removeItem({ target });
+  //   }
+  //   this.saveLocalStorage();
+  // };
 
   render() {
     const {
@@ -34,20 +88,20 @@ class Cart extends Component {
             ? <h1 data-testid="shopping-cart-empty-message">Seu carrinho está vazio</h1>
             : (
               savedCart.map((produto, i) => (
-                <div key={ i }>
-
-                  <p data-testid="shopping-cart-product-name">{ produto.title }</p>
-                  <img src={ produto.thumbnail } alt={ produto.title } />
-                  <p>{`R$ ${produto.price}`}</p>
-                  <p data-testid="shopping-cart-product-quantity">
-                    { `Quantidade: ${this.filter(produto.title)}` }
-                  </p>
-                </div>
+                <ProductCard
+                  key={ i }
+                  title={ produto.title }
+                  thumbnail={ produto.thumbnail }
+                  price={ produto.price }
+                  onclickRemove={ this.removeItem }
+                  onclickDecrease={ this.decreaseItem }
+                  // onclickIncrease={ this.addItem }
+                  count={ produto.count }
+                  load={ this.updateCartFunction }
+                />
               ))
             )
-
         }
-
       </div>
     );
   }

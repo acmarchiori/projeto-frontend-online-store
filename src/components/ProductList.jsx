@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 class ProductList extends Component {
   state = {
     savedCart: [],
+    count: 1,
   };
 
   saveLocalStorage = () => {
@@ -13,19 +14,27 @@ class ProductList extends Component {
   };
 
   handleClick = (produto) => {
-    const { savedCart } = this.state;
+    const { savedCart, count } = this.state;
     const { title, thumbnail, price } = produto;
 
-    this.setState({
-      savedCart: [
-        ...savedCart,
-        {
-          title,
-          thumbnail,
-          price,
-        },
-      ],
-    }, this.saveLocalStorage);
+    const contador = savedCart.some((product) => product.title === title);
+    if (contador) {
+      this.setState({
+        count: 1,
+      });
+    } else {
+      this.setState({
+        savedCart: [
+          ...savedCart,
+          {
+            title,
+            thumbnail,
+            price,
+            count,
+          },
+        ],
+      }, this.saveLocalStorage);
+    }
   };
 
   list = () => {
