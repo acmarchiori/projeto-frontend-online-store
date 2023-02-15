@@ -20,7 +20,6 @@ class ProductDetails extends Component {
         savedCart: pegarLS,
       });
     }
-    // localStorage.setItem('cartSave', JSON.stringify([]));
     this.fetchProduct();
   }
 
