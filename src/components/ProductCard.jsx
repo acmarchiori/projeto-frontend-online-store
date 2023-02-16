@@ -18,8 +18,8 @@ class ProductCard extends Component {
     const { savedCartTest, load } = this.props;
     const newSavedCart = savedCartTest.map((product) => {
       if (product.title === getTitle) {
-        if (product.count < 1) {
-          product.count = 0;
+        if (product.count <= 1) {
+          product.count = 1;
         } else {
           product.count -= 1;
         }
@@ -27,8 +27,7 @@ class ProductCard extends Component {
       }
       return product;
     });
-    const removeProduct = newSavedCart.filter((productEl) => productEl.count !== 0);
-    load(removeProduct);
+    load(newSavedCart);
   };
 
   removeItem = ({ target }) => {
@@ -50,7 +49,7 @@ class ProductCard extends Component {
       <div>
         <p data-testid="shopping-cart-product-name">{ title }</p>
         <img src={ thumbnail } alt={ title } />
-        <p>{`R$ ${price.toFixed(2)}`}</p>
+        <p>{`R$ ${price}`}</p>
         <p data-testid="shopping-cart-product-quantity">
           { count }
         </p>
