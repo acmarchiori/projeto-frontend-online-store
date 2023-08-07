@@ -1,0 +1,10 @@
+/* Ocultar os radio buttons */
+.radio {
+  display: none;
+  left: -9999px;
+}
+
+form label .star {
+  font-size: 30px;
+  margin: 0 2px;
+}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { IoMdCart } from 'react-icons/io';
 import ListCategories from '../components/ListCategories';
 import ProductList from '../components/ProductList';
 import { getProductsFromCategoryAndQuery, getProductById } from '../services/api';
@@ -9,15 +10,17 @@ class Home extends Component {
     query: '',
     queryList: [],
     categorItem: '',
-
   };
 
   handleChange = ({ target }, categoriaId) => {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-      categorItem: categoriaId,
-    }, this.callList);
+    this.setState(
+      {
+        [name]: value,
+        categorItem: categoriaId,
+      },
+      this.callList,
+    );
   };
 
   callList = async () => {
@@ -44,17 +47,15 @@ class Home extends Component {
           id="query"
           onChange={ this.handleChange }
         />
-        <button
-          data-testid="query-button"
-          type="button"
-          onClick={ this.callList }
-        >
+        <button data-testid="query-button" type="button" onClick={ this.callList }>
           Pesquisa
         </button>
         <h1 data-testid="home-initial-message">
           Digite algum termo de pesquisa ou escolha uma categoria.
         </h1>
-        <Link data-testid="shopping-cart-button" to="/Cart">Carrinho de compras</Link>
+        <Link data-testid="shopping-cart-button" to="/Cart">
+          <IoMdCart />
+        </Link>
         <ListCategories handleChange={ this.handleChange } />
         <ProductList list={ queryList } />
       </div>
