@@ -1,0 +1,65 @@
+/* header.css */
+.header {
+  align-items: center;
+  background-color: #003be5;
+  color: white;
+  display: flex;
+  height: 148px;
+  padding: 0 30px;
+}
+
+.logo {
+  background-image: url('../images/logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 70px;
+  width: 267px;
+}
+
+.left-side {
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+
+.left-side input {
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  padding: 0 10px;
+}
+
+.left-side button {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  color: #003be5;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  margin-left: 10px;
+  padding: 0 20px;
+}
+
+.right-side {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.right-side a {
+  align-items: center;
+  background-color: #003be5;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  font-size: 45px;
+  font-weight: 400;
+  height: 40px;
+  text-decoration: none;
+  width: 44px;
+}

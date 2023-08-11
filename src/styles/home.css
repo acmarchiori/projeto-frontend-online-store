@@ -1,0 +1,49 @@
+/* home.css */
+
+/* Header */
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&display=swap') ;
+
+/* Body */
+.list-categories-wrapper {
+  color: #444955;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  position: absolute;
+  width: 310px;
+}
+
+/* Centered Text */
+.centered-text {
+  font-family: Epilogue , sans-serif;
+  left: 55%; /* Move o elemento 50% para a direita da div pai */
+  position: absolute;
+  text-align: center;
+  top: 50%; /* Move o elemento 50% para baixo da div pai */
+  transform: translate(-50%, -50%); /* Centraliza o elemento no centro da div pai */
+}
+
+.p1 {
+  color: #31c28d;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.p2 {
+  color: #94979d;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.center {
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 310px;
+  margin-top: 40px;
+  position: static; /* Altera o posicionamento para não sobrepor outras divs */
+  width: calc(100% - 330px); /* Define a largura da div para ocupar o espaço restante */
+}
+

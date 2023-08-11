@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&display=swap') ;
+
+.cardBox {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  font-family: Epilogue , sans-serif;
+  margin-left: 36px;
+  margin-top: 65px;
+  position: absolute;
+  width: 550px;
+}
+
+
+.empty-container {
+  align-items: center;
+  display: flex;
+  height: calc(100vh - 100px); /* Ajuste conforme necessário */
+  justify-content: center;
+}
+
+.empty-message {
+  color: #31c28d;
+  font-family: Epilogue , sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.cardBox h2 {
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.cardBox hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  width: 476px;
+}
+
+.back {
+  align-items: center;
+  background-image: url('../images/arrowBack.png');
+  background-repeat: no-repeat;
+  background-size: 24px; /* Tamanho do ícone */
+  color: #2fc18c; /* Cor do texto */
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 36px;
+  margin-top: 25px;
+  padding-left: 25px; /* Espaçamento entre o ícone e o texto */
+  position: absolute;
+  text-decoration: none;
+}
+
+.checkout-cart {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  margin-left: 630px; /* Move para a direita */
+  margin-top: 20%;
+}
+
+.checkout-cart p {
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.checkout-link {
+  align-items: center;
+  background-color: #31c28d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  height: 39px; /* Altura do botão */
+  justify-content: center;
+  text-decoration: none;
+  width: 245px; /* Largura do botão */
+}

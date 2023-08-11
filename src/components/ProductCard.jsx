@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../styles/productCard.css';
 
 class ProductCard extends Component {
   addItem = ({ target }) => {
@@ -46,28 +47,30 @@ class ProductCard extends Component {
     } = this.props;
 
     return (
-      <div>
-        <p data-testid="shopping-cart-product-name">{ title }</p>
-        <img src={ thumbnail } alt={ title } />
-        <p>{`R$ ${price}`}</p>
-        <p data-testid="shopping-cart-product-quantity">
-          { count }
-        </p>
+      <div className="card-cart">
         <button
+          className="remove-button"
           data-testid="remove-product"
           onClick={ this.removeItem }
           id={ title }
         >
-          Remover
+          x
         </button>
+        <img src={ thumbnail } alt={ title } className="product-image" />
+        <p className="product-info" data-testid="shopping-cart-product-name">{ title }</p>
         <button
+          className="quantity-button-decrease"
           data-testid="product-decrease-quantity"
           onClick={ this.decreaseItem }
           id={ title }
         >
           -
         </button>
+        <p className="quantity-count" data-testid="shopping-cart-product-quantity">
+          { count }
+        </p>
         <button
+          className="quantity-button-increase"
           type="button"
           data-testid="product-increase-quantity"
           onClick={ this.addItem }
@@ -75,6 +78,7 @@ class ProductCard extends Component {
         >
           +
         </button>
+        <p className="product-price">{`R$ ${parseFloat(price).toFixed(2)}`}</p>
       </div>
     );
   }

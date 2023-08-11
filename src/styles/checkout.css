@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&display=swap') ;
+
+.right {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  margin-left: 660px;
+  margin-top: 30px;
+}
+
+.info {
+  margin-left: -210px;
+}
+
+.right button {
+  align-items: center;
+  background-color: #31c28d;
+  border: none;
+  color: white;
+  display: flex;
+  font-size: 16px;
+  font-weight: 600;
+  height: 39px;
+  justify-content: center;
+  margin-top: 30px;
+  width: 245px;
+}
+
+hr {
+  margin-top: 30px;
+  width: 545px;
+}
+
+.container-button {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.name-cpf input {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 250px;
+}
+
+.mail-phone input {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 250px;
+}
+
+.cep {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 100px;
+}
+
+.address {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 400px;
+}
+
+.complement {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 400px;
+}
+
+.number {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 100px;
+}
+
+.city {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 400px;
+}
+
+select {
+  color: #94979d;
+  font-size: 16px;
+  font-weight: 400;
+  height: 36px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 108px;
+}
+
+.paymentMethod-container {
+  display: flex;
+}
+
+.ticket-payment {
+  margin-right: 100px;
+}
+
+.payment-icon {
+  margin-left: 10px;
+  margin-right: 30px;
+}
+
+
+

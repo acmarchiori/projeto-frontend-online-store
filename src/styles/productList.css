@@ -1,0 +1,57 @@
+/* productList.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&display=swap') ;
+
+.card {
+  align-items: center;
+  border: 2px solid #e4e4e4;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 359px;
+  justify-content: center;
+  padding: 10px;
+  width: 280px;
+}
+
+.card img {
+  border-radius: 5px;
+  height: 209px; /* Permite que a altura seja ajustada proporcionalmente */
+  max-width: 100%; /* Define a largura máxima da imagem */
+}
+
+.card p {
+  font-family: Epilogue , sans-serif;
+  text-align: center;
+}
+
+.title {
+  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.price {
+  color: #444955;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.card button {
+  background-color: #31c28d;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: auto; /* Isso empurra o botão para a parte inferior do card */
+  padding: 10px 20px;
+}
+
+.cardContent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,78 @@
+/* productCard.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&display=swap') ;
+
+.card-cart {
+  align-items: center;
+  display: flex;
+  font-family: Epilogue , sans-serif;
+  height: 125px;
+  margin-left: 55px;
+  width: 476px;
+}
+
+.card-cart > * {
+  flex-grow: 1;
+}
+
+.product-info {
+  align-items: center;
+  color: #444955;
+  display: flex;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.remove-button {
+  background-color: transparent;
+  border: none;
+  color: #444955;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.product-image {
+  height: auto;
+  margin: 0 10px;
+  width: 100px;
+}
+
+.quantity-button-decrease {
+  background-color: transparent;
+  border: none;
+  color: #444955;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.quantity-count {
+  align-items: center;
+  background-color: #b0b3bb;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: 700;
+  height: 25px;
+  justify-content: center;
+  width: 25px;
+}
+
+.quantity-button-increase {
+  background-color: transparent;
+  border: none;
+  color: #444955;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.product-price {
+  color: #444955;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 10px;
+  width: 280px;
+}
+

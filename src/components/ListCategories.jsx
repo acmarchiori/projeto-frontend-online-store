@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { getCategories } from '../services/api';
+import '../styles/listCategories.css';
 
 class ListCategories extends Component {
   state = {
@@ -15,7 +16,6 @@ class ListCategories extends Component {
   fetchCategories = async () => {
     const categoriesList = await getCategories();
     this.setState({ categories: categoriesList });
-    // console.log(categoriesList);
   };
 
   list = () => {
@@ -23,10 +23,10 @@ class ListCategories extends Component {
     const { handleChange } = this.props;
     return (
       categories.map((categoria) => (
-        <li key={ categoria.id }>
-          {/* this.setState({ id: categoria.id }) */}
+        <div key={ categoria.id }>
           <label data-testid="category" htmlFor={ categoria.name }>
             <input
+              className="radio"
               type="radio"
               name={ categoria.name }
               id={ categoria.name }
@@ -35,13 +35,15 @@ class ListCategories extends Component {
             />
             { categoria.name }
           </label>
-        </li>
+        </div>
       )));
   };
 
   render() {
     return (
-      <div>
+      <div className="list">
+        <h2>Categorias</h2>
+        <hr />
         {
           this.list()
         }

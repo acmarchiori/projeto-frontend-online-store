@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { IoMdCart } from 'react-icons/io';
 import ListCategories from '../components/ListCategories';
 import ProductList from '../components/ProductList';
 import { getProductsFromCategoryAndQuery, getProductById } from '../services/api';
+import '../styles/home.css'; // Importando o arquivo de estilos
+import Header from '../components/Header';
 
 class Home extends Component {
   state = {
@@ -37,27 +37,26 @@ class Home extends Component {
 
   render() {
     const { query, queryList } = this.state;
+    const isSearchEmpty = query.length === 0 && queryList.length === 0;
+
     return (
       <div>
-        <input
-          data-testid="query-input"
-          type="text"
-          name="query"
-          value={ query }
-          id="query"
-          onChange={ this.handleChange }
-        />
-        <button data-testid="query-button" type="button" onClick={ this.callList }>
-          Pesquisa
-        </button>
-        <h1 data-testid="home-initial-message">
-          Digite algum termo de pesquisa ou escolha uma categoria.
-        </h1>
-        <Link data-testid="shopping-cart-button" to="/Cart">
-          <IoMdCart />
-        </Link>
-        <ListCategories handleChange={ this.handleChange } />
-        <ProductList list={ queryList } />
+        <Header handleChange={ this.handleChange } />
+        <div className="list-categories-wrapper">
+          <ListCategories handleChange={ this.handleChange } />
+        </div>
+        <div className="center">
+          {isSearchEmpty ? ( // Renderização condicional com operador ternário
+            <div className="centered-text">
+              <p className="p1">VOCÊ AINDA NÃO REALIZOU NENHUMA BUSCA</p>
+              <p className="p2" data-testid="home-initial-message">
+                Digite algum termo de pesquisa ou escolha uma categoria.
+              </p>
+            </div>
+          ) : (
+            <ProductList list={ queryList } />
+          )}
+        </div>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import '../styles/productList.css';
 
 class ProductList extends Component {
   state = {
@@ -42,21 +43,24 @@ class ProductList extends Component {
 
     if (list.length <= 0) {
       return (
-        <p>Nenhum produto foi encontrado</p>
+        <div className="centered-text">
+          <p className="p1">NENHUM PRODUTO FOI ENCONTRADO</p>
+          <p className="p2">Digite outro termo de pesquisa ou escolha uma categoria</p>
+        </div>
       );
     }
     return (
       list.map((produto, index) => (
-        <div key={ index }>
+        <div key={ index } className="card">
           <Link
             data-testid="product-detail-link"
             to={ `/productDetails/${produto.id}` }
           >
-            <li data-testid="product">
-              <p>{ produto.title }</p>
+            <div className="cardContent" data-testid="product">
               <img src={ produto.thumbnail } alt={ produto.title } />
-              <p>{ `R$ ${produto.price}` }</p>
-            </li>
+              <p className="title">{ produto.title }</p>
+              <p className="price">{`R$ ${parseFloat(produto.price).toFixed(2)}`}</p>
+            </div>
           </Link>
           <button
             type="button"
@@ -71,11 +75,11 @@ class ProductList extends Component {
 
   render() {
     return (
-      <div>
+      <>
         {
           this.list()
         }
-      </div>
+      </>
     );
   }
 }
