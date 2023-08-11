@@ -2,10 +2,10 @@
 
 Bem-vindo(a) ao projeto Front-end Online Store! Este projeto foi desenvolvido em grupo, onde praticamos metodologias ágeis e trabalhamos para construir uma loja online interativa. A equipe foi composta por:
 
-- Antonio Marchiori
-- Ramily Carvalho
-- Nathaniel Dal Pozzo
-- Junior S. Gomes
+- [Antonio Marchiori](https://github.com/acmarchiori)
+- [Ramily Carvalho](https://github.com/Ramilyec)
+- [Nathaniel Dal Pozzo](https://github.com/NathanielDalPozzo)
+- [Junior S. Gomes](https://github.com/JuniorSilGo)
 
 ## Descrição do Projeto
 
