@@ -5,3 +5,8 @@
 .list {
   padding-left: 36px;
 }
+
+.list hr {
+  margin-left: -1px;
+  width: 238px;
+}
